@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#aviso-movil-horizontal {
+    display: none;
+}
+
+@media only screen and (orientation:portrait) {
+    #aviso-movil-horizontal {
+        display: block;
+        color: blue;
+        background-color: whitesmoke;
+        text-align: center;
+        height: 100px;
+        line-height: 100px;
+        
+    }
+}
+
+@media only screen and (orientation:landscape) {
+    #aviso-movil-horizontal {
+        display: none;
+    }
+}
+
+body,
+html {
+    height: 100%;
+    background-color: #01171b;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: rgb(22, 139, 235);
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+}
+
+.ventana {
+    width: 100%;
+    height: 500px;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#texto01 {
+    width: 500px;
+    text-align: center;
+}
+
+#texto01 p {
+    margin: 20px;
+}
+
+#start,
+#restart {
+    text-decoration: none;
+    margin: 10px;
+    padding: 10px;
+    font-size: x-large;
+    color: #1166a6;
+    background-color: #edd64a;
+}
+
+#start:hover,
+#restart:hover {
+    cursor: pointer;
+    background-color: #1166a6;
+    color: #edd64a;
+    transition: 0.5s;
+}
+
+#nenes_caminando,
+#grupo_nenes {
+    width: 150px;
+    height: 150px;
+}
+
+#mapa {
+    margin: 10px;
+    display: none;
+}
+
+#info {
+    margin: 10px;
+    display: none;
+}
+
+svg path,
+polygon {
+    fill: #2b9c0f;
+    stroke: #eee;
+    stroke-width: .25;
+}
+
+svg path:hover,
+polygon:hover {
+    fill: #006284;
+    transition: 0.6s;
+    cursor: pointer;
+}
+
+#pregunta {
+    color: #d2eaf1;
+    font-size: 2em;
+    text-align: center;
+    padding: 0px;
+}
+
+#correcto {
+    width: 50%;
+    float: left;
+    font-size: 1.5em;
+    text-align: center;
+
+}
+
+#error {
+    width: 50%;
+    float: left;
+    font-size: 1.5em;
+    text-align: center;
+
+}
+
+#error_municipio {
+    color: rgba(255, 0, 0, .5);
+    font-size: 1em;
+    text-align: center;
+    padding-bottom: 20px;
+    ;
+}
+
+#resultados{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+#ventana_aciertos{
+    width: 45%;
+    padding: 2%;
+    color: green;
+}
+
+#ventana_errores{
+    width: 45%;
+    padding: 2%;
+    color: red;
+}
+
+#puntos{
+    color: #d2eaf1;
+    font-size: 2em;
+    text-align: center;
+}
+
+#total_puntos{
+    font-size: 2em;
+    padding: 10px;
+    border-radius: 25px;
+    background-color: burlywood;
+    color: rgb(39, 39, 39);
+    margin: 0px;
+    width: 60px;
+    height: 80px;
+}
+
+#punt_max{
+    font-size: 2em;
+    background-color: burlywood;
+    margin: 0 auto;
+    width:60px;
+    border-radius: 25px;
+    padding: 10px;
+    color: rgb(39, 39, 39);
+
+}
+
+h3 {
+    margin: 10px;
+}
+#mejor_puntuacion{
+    text-align: center;
+}
+
+#boton_reset{
+    margin:10px;
+}
+
+#reset{
+    text-decoration: none;
+    color: black;
+    background-color: white;
+}
+
+#reset:hover{
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    transition: 0.5s;
+}
