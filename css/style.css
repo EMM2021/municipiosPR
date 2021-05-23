@@ -58,10 +58,11 @@ html {
 #texto01 {
     width: 500px;
     text-align: center;
+    margin: 20px;;
 }
 
 #texto01 p {
-    margin: 20px;
+    margin: 8px;
 }
 
 #start,
@@ -174,7 +175,6 @@ polygon:hover {
     background-color: burlywood;
     color: rgb(39, 39, 39);
     margin: 0px;
-    width: 60px;
     height: 80px;
 }
 
@@ -182,7 +182,6 @@ polygon:hover {
     font-size: 2em;
     background-color: burlywood;
     margin: 0 auto;
-    width:60px;
     border-radius: 25px;
     padding: 10px;
     color: rgb(39, 39, 39);

@@ -44,6 +44,12 @@ function pregunta() {
 	m = municipios[x];
 	document.getElementById('pregunta').innerHTML = numeroPregunta + '. ¿Dónde está ' + m + '?';
 
+	unidades = 100;
+	//contador de tiempo de respuesta...
+	contador = window.setInterval(function(){unidades--;}, 100);
+	console.log('unidades =' + unidades)
+
+	//para no poder pulsar varias veces seguidas en un municipio
 	control = 1;
 
 	//eliminamos el municipio del array
@@ -72,7 +78,8 @@ function respuesta() {
 			//acierto
 			if (r === m) {
 				acierto.play();
-				puntos++;
+				if (unidades <= 0){unidades = 10;};
+				puntos+= unidades;
 				score();
 				aciertos.push(m);
 				let div1 = document.getElementById("correcto");
@@ -101,8 +108,8 @@ function respuesta() {
 			if (numeroPregunta > 78) {
 				final();
 			}
+			clearInterval(contador);
 			window.setTimeout("pregunta()", pausa);
-
 		}
 
 	});
