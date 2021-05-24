@@ -908,15 +908,85 @@ var app = {
 			</div>`
 
 			div.innerHTML = html;
+
+			musica_inicio.pause();
+			musica_juego.play();
+
+			app.pregunta();
 		},
 
 		pregunta: function(){
+			let x = Math.floor((Math.random() * municipios.length));
+			m = municipios[x];
+			document.getElementById('pregunta').innerHTML = numeroPregunta + '. ¿Dónde está ' + m + '?';
 
+			unidades = 100;
+			//contador de tiempo de respuesta...
+			contador = window.setInterval(function(){unidades--;}, 100);
+
+			//para no poder pulsar varias veces seguidas en un municipio
+			control = 1;
+
+			//eliminamos el municipio del array
+			municipios.splice(x, 1);
+
+			app.respuesta();
 		},
 
 		respuesta: function(){
+			document.getElementById("mapa").addEventListener('click', event => {
+
+
+				let r = event.target.id;
+				let pausa = 0;
+				if (r !== "" && r !== "start" && control === 1) {
+					//acierto
+					if (r === m) {
+						acierto.play();
+						if (unidades <= 0) {
+							unidades = 10;
+						};
+						puntos += unidades;
+						app.score();
+						aciertos.push(m);
+						let div1 = document.getElementById("correcto");
+						div1.style.backgroundColor = "green";
+						div1.style.color = "white";
+						pausa = 500;
+					} else {
+						//error
+						fallo.play();
+						errores.push(m);
+
+						let div2 = document.getElementById("error");
+						div2.style.backgroundColor = "red";
+						div2.style.color = "white";
+
+						let div3 = document.getElementById("error_municipio");
+						div3.style.backgroundColor = "rgb(22, 139, 235)";
+						div3.style.color = "red";
+						div3.innerHTML = "Pulsaste sobre " + r;
+						pausa = 2000;
+					};
+
+					control = 0;
+
+					numeroPregunta++;
+					if (numeroPregunta > 78) {
+						final();
+					}
+					clearInterval(contador);
+					window.setTimeout(app.pregunta, pausa);
+				}
+
+			});
+		},
+
+		score: function() {
+			document.getElementById('puntos').innerHTML = 'Puntos: ' + puntos;
 
 		},
+		
 
 		reset: function(){
 			localStorage.puntuacion_maxima = 0;
