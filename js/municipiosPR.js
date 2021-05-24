@@ -1,10 +1,10 @@
 var app = {
 
-		inicio: function () {
+	inicio: function () {
 
-			let div = document.getElementById("container");
+		let div = document.getElementById("container");
 
-			let html = `
+		let html = `
 			<div id="aviso-movil-horizontal">
 			<p>Por favor, para jugar coloca tu móvil o tablet en horizontal.</p>
 			</div>
@@ -20,13 +20,13 @@ var app = {
 				</div>
 				<button id="start">COMENZAR</button>`;
 
-			localStorage.puntuacion_maxima = (localStorage.puntuacion_maxima || 0);
-			//localStorage.puntuacion_maxima = 2545;
-			max = +(localStorage.puntuacion_maxima);
+		localStorage.puntuacion_maxima = (localStorage.puntuacion_maxima || 0);
+		//localStorage.puntuacion_maxima = 2545;
+		max = +(localStorage.puntuacion_maxima);
 
-			if (max !== 0) {
+		if (max !== 0) {
 
-				html += `
+			html += `
 							<div id="mejor_puntuacion">			
 								<h3>Tu mejor puntuación</h3>
 								<p id="punt_max">${max}</p>
@@ -34,22 +34,22 @@ var app = {
 									<button id="reset">RESET</button>
 								</div>
 							</div>`;
-			};
+		};
 
-			html+= `</div>`;
+		html += `</div>`;
 
-			div.innerHTML = html;
-			document.getElementById("start").addEventListener("click", app.play);
-			document.getElementById("reset").addEventListener("click", app.reset);
+		div.innerHTML = html;
+		document.getElementById("start").addEventListener("click", app.play);
+		document.getElementById("reset").addEventListener("click", app.reset);
 
-			musica_inicio.play();
+		musica_inicio.play();
 
-			
-		},
 
-		play: function(){
-			let div = document.getElementById("container");
-			html = `
+	},
+
+	play: function () {
+		let div = document.getElementById("container");
+		html = `
 			<div id="mapa">
 			<?xml version="1.0" encoding="utf-8"?>
 			<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [ <!ENTITY
@@ -898,289 +898,196 @@ var app = {
 		L0.6,173.6z" />
 			</svg>
 			</div>`;
-			html += `
+		html += `
 			<div id="info">
 			<div id="pregunta">Pregunta...</div>
 			<div id="error_municipio">******</div>
 			<div id="correcto">CORRECTO</div>
 			<div id="error">ERROR</div>
 			<div id="puntos">Puntos:</div>
-			</div>`
+			</div>`;
 
-			div.innerHTML = html;
+		div.innerHTML = html;
 
-			musica_inicio.pause();
-			musica_juego.play();
+		musica_inicio.pause();
+		musica_juego.play();
 
-			app.pregunta();
-		},
+		app.pregunta();
+	},
 
-		pregunta: function(){
-			let x = Math.floor((Math.random() * municipios.length));
-			m = municipios[x];
-			document.getElementById('pregunta').innerHTML = numeroPregunta + '. ¿Dónde está ' + m + '?';
+	pregunta: function () {
+		let x = Math.floor((Math.random() * municipios.length));
+		m = municipios[x];
+		document.getElementById('pregunta').innerHTML = numeroPregunta + '. ¿Dónde está ' + m + '?';
 
-			unidades = 100;
-			//contador de tiempo de respuesta...
-			contador = window.setInterval(function(){unidades--;}, 100);
+		unidades = 100;
+		//contador de tiempo de respuesta...
+		contador = window.setInterval(function () {
+			unidades--;
+		}, 100);
 
-			//para no poder pulsar varias veces seguidas en un municipio
-			control = 1;
+		//para no poder pulsar varias veces seguidas en un municipio
+		control = 1;
 
-			//eliminamos el municipio del array
-			municipios.splice(x, 1);
+		//eliminamos el municipio del array
+		municipios.splice(x, 1);
 
-			app.respuesta();
-		},
+		app.respuesta();
+	},
 
-		respuesta: function(){
-			document.getElementById("mapa").addEventListener('click', event => {
+	respuesta: function () {
+		document.getElementById("mapa").addEventListener('click', event => {
 
 
-				let r = event.target.id;
-				let pausa = 0;
-				if (r !== "" && r !== "start" && control === 1) {
-					//acierto
-					if (r === m) {
-						acierto.play();
-						if (unidades <= 0) {
-							unidades = 10;
-						};
-						puntos += unidades;
-						app.score();
-						aciertos.push(m);
-						let div1 = document.getElementById("correcto");
-						div1.style.backgroundColor = "green";
-						div1.style.color = "white";
-						pausa = 500;
-					} else {
-						//error
-						fallo.play();
-						errores.push(m);
-
-						let div2 = document.getElementById("error");
-						div2.style.backgroundColor = "red";
-						div2.style.color = "white";
-
-						let div3 = document.getElementById("error_municipio");
-						div3.style.backgroundColor = "rgb(22, 139, 235)";
-						div3.style.color = "red";
-						div3.innerHTML = "Pulsaste sobre " + r;
-						pausa = 2000;
+			let r = event.target.id;
+			let pausa = 0;
+			if (r !== "" && r !== "mapa" && control === 1) {
+				//acierto
+				if (r === m) {
+					acierto.play();
+					if (unidades <= 10) {
+						unidades = 10;
 					};
+					puntos += unidades;
+					app.score();
+					aciertos.push(m);
+					let div1 = document.getElementById("correcto");
+					div1.style.backgroundColor = "green";
+					div1.style.color = "white";
+					pausa = 500;
+				} else {
+					//error
+					fallo.play();
+					errores.push(m);
 
-					control = 0;
+					let div2 = document.getElementById("error");
+					div2.style.backgroundColor = "red";
+					div2.style.color = "white";
 
-					numeroPregunta++;
-					if (numeroPregunta > 78) {
-						final();
-					}
-					clearInterval(contador);
-					window.setTimeout(app.pregunta, pausa);
+					let div3 = document.getElementById("error_municipio");
+					div3.style.backgroundColor = "rgb(22, 139, 235)";
+					div3.style.color = "red";
+					div3.innerHTML = "Pulsaste sobre " + r;
+					pausa = 2000;
+				};
+
+				control = 0;
+
+				numeroPregunta++;
+				if (numeroPregunta > 78) {
+					app.final();
 				}
+				clearInterval(contador);
+				window.setTimeout(app.nueva_pregunta, pausa);
+			}
 
-			});
-		},
+		});
+	},
 
-		score: function() {
-			document.getElementById('puntos').innerHTML = 'Puntos: ' + puntos;
+	score: function () {
+		document.getElementById('puntos').innerHTML = 'Puntos: ' + puntos;
 
-		},
-		
+	},
 
-		reset: function(){
-			localStorage.puntuacion_maxima = 0;
-			app.reiniciar();
-		},
+	reset: function () {
+		localStorage.puntuacion_maxima = 0;
+		app.reiniciar();
+	},
+
+	nueva_pregunta: function () {
+
+		//borramos resultado de la pregunta
+
+		let div1 = document.getElementById("correcto");
+		let div2 = document.getElementById("error");
+		let div3 = document.getElementById("error_municipio");
+
+		div1.style.backgroundColor = "rgb(22, 139, 235)";
+		div2.style.backgroundColor = "rgb(22, 139, 235)";
+		div3.style.backgroundColor = "rgb(22, 139, 235)";
+
+		div1.style.color = "rgb(120, 139, 235)";
+		div2.style.color = "rgb(120, 139, 235)";
+		div3.style.color = "rgb(22, 139, 235)";
+
+		//y nueva pregunta
+		app.pregunta();
+
+	},
+
+	final: function () {
+		musica_resultado.play();
+
+		let div = document.getElementById("container");
+
+		html = `
+		<div class="flex-container">
+		<div class="ventana">
+			<img id="grupo_nenes" src="img/resultados.png" alt="grupo de nenes">
+			<h1>Tus resultados:</h1>
+			<div id="resultados">
+				<div id="ventana_aciertos">
+					<h3>Aciertos:</h3>
+					<p id="aciertos"></p>
+				</div>
+				<div id="ventana_errores">
+					<h3>Errores:</h3>
+					<p id="errores"></p>
+				</div>
+			</div>
+			<h3>Puntos</h3>
+			<p id="total_puntos"></p>
+			<button id="restart">JUGAR DE NUEVO</button>
+		</div>
+	</div>
+		`;
+
+		div.innerHTML = html;
+
+		resultado_aciertos = app.mostrar_aciertos();
+		let p = document.getElementById("aciertos");
+		p.innerHTML = resultado_aciertos;
+
+		resultado_errores = app.mostrar_errores();
+		let q = document.getElementById("errores");
+		q.innerHTML = resultado_errores;
+
+		let r = document.getElementById("total_puntos");
+		r.innerHTML = puntos;
+		if (puntos > max) {
+			localStorage.puntuacion_maxima = puntos;
+		};
+
+		document.getElementById("restart").addEventListener("click", app.reiniciar);
 
 
+	},
+
+	mostrar_aciertos: function () {
+		let html = '';
+		for (let i = 0; i < aciertos.length; i++) {
+			html += aciertos[i] + ", ";
+		}
+		return html;
+	},
+
+	mostrar_errores: function () {
+		let html = '';
+		for (let i = 0; i < errores.length; i++) {
+			html += errores[i] + ", ";
+		}
+		return html;
+	},
 
 
-		reiniciar: function(){
-			location.reload();	
-		},
-			
+	reiniciar: function () {
+		location.reload();
+	},
+
 };
 
 
-
-
-		/*function inicio() {
-			localStorage.puntuacion_maxima = (localStorage.puntuacion_maxima || 0);
-			max = +(localStorage.puntuacion_maxima);
-			let div1 = document.getElementsByClassName("flex-container");
-			let div2 = document.getElementById("mejor_puntuacion");
-			if (max !== 0) {
-				let html = `<h3>Tu mejor puntuación</h3>
-					<p id="punt_max">${max}</p>
-					<div id="boton_reset">
-					<button id="reset">RESET</button>
-					</div>`
-				div2.innerHTML = html;
-				document.getElementById("reset").addEventListener("click", reset);
-			};
-			div1[1].style.display = "none";
-			document.getElementById("start").addEventListener("click", play);
-			musica_inicio.play();
-		}
-
-		function play() {
-			let div1 = document.getElementsByClassName("flex-container");
-			let div2 = document.getElementById("mapa");
-			let div3 = document.getElementById("info");
-			div1[0].style.display = "none";
-			div2.style.display = "block";
-			div3.style.display = "block";
-			musica_inicio.pause();
-			musica_juego.play();
-		}
-
-		function reset() {
-			localStorage.puntuacion_maxima = 0;
-			reiniciar();
-		}
-
-		function aleatorio() {
-			let a = Math.floor((Math.random() * municipios.length));
-			return a;
-		}
-
-		function pregunta() {
-			let x = aleatorio();
-			m = municipios[x];
-			document.getElementById('pregunta').innerHTML = numeroPregunta + '. ¿Dónde está ' + m + '?';
-
-			unidades = 100;
-			//contador de tiempo de respuesta...
-			contador = window.setInterval(function () {
-				unidades--;
-			}, 100);
-			console.log('unidades =' + unidades)
-
-			//para no poder pulsar varias veces seguidas en un municipio
-			control = 1;
-
-			//eliminamos el municipio del array
-			municipios.splice(x, 1);
-
-			let div1 = document.getElementById("correcto");
-			div1.style.backgroundColor = "rgb(22, 139, 235)";
-			div1.style.color = "rgb(120, 139, 235)";
-			let div2 = document.getElementById("error");
-			div2.style.backgroundColor = "rgb(22, 139, 235)";
-			div2.style.color = "rgb(120, 139, 235)";
-
-			let div3 = document.getElementById("error_municipio");
-			div3.style.backgroundColor = "rgb(22, 139, 235)";
-			div3.style.color = "rgb(22, 139, 235)";
-		}
-
-		function respuesta() {
-
-			document.getElementById("mapa").addEventListener('click', event => {
-
-
-				let r = event.target.id;
-				let pausa = 0;
-				if (r !== "" && r !== "start" && control === 1) {
-					//acierto
-					if (r === m) {
-						acierto.play();
-						if (unidades <= 0) {
-							unidades = 10;
-						};
-						puntos += unidades;
-						score();
-						aciertos.push(m);
-						let div1 = document.getElementById("correcto");
-						div1.style.backgroundColor = "green";
-						div1.style.color = "white";
-						pausa = 500;
-					} else {
-						//error
-						fallo.play();
-						errores.push(m);
-
-						let div2 = document.getElementById("error");
-						div2.style.backgroundColor = "red";
-						div2.style.color = "white";
-
-						let div3 = document.getElementById("error_municipio");
-						div3.style.backgroundColor = "rgb(22, 139, 235)";
-						div3.style.color = "red";
-						div3.innerHTML = "Pulsaste sobre " + r;
-						pausa = 2000;
-					};
-
-					control = 0;
-
-					numeroPregunta++;
-					if (numeroPregunta > 78) {
-						final();
-					}
-					clearInterval(contador);
-					window.setTimeout("pregunta()", pausa);
-				}
-
-			});
-		}
-
-		function score() {
-			document.getElementById('puntos').innerHTML = 'Puntos: ' + puntos;
-
-		}
-
-		function final() {
-			musica_resultado.play();
-			let div1 = document.getElementsByClassName("flex-container");
-			let div2 = document.getElementById("mapa");
-			let div3 = document.getElementById("info");
-			div1[1].style.display = "flex";
-			div2.style.display = "none";
-			div3.style.display = "none";
-
-
-			resultado_aciertos = mostrar_aciertos();
-			let p = document.getElementById("aciertos");
-			p.innerHTML = resultado_aciertos;
-
-			resultado_errores = mostrar_errores();
-			let q = document.getElementById("errores");
-			q.innerHTML = resultado_errores;
-
-			let r = document.getElementById("total_puntos");
-			r.innerHTML = puntos;
-			if (puntos > max) {
-				localStorage.puntuacion_maxima = puntos;
-			};
-
-			document.getElementById("restart").addEventListener("click", reiniciar);
-		}
-
-		function mostrar_aciertos() {
-			let html = '';
-			for (let i = 0; i < aciertos.length; i++) {
-				html += aciertos[i] + ", ";
-			}
-			return html;
-		}
-
-		function mostrar_errores() {
-			let html = '';
-			for (let i = 0; i < errores.length; i++) {
-				html += errores[i] + ", ";
-			}
-			return html;
-		}
-
-		function reiniciar() {
-			location.reload();
-		}*/
-
-		//inicio
-		document.addEventListener('DOMContentLoaded', function () {
-			app.inicio();
-			//score();
-			//pregunta();
-			//respuesta();
-		});
+//inicio
+document.addEventListener('DOMContentLoaded', function () {
+	app.inicio();
+});
