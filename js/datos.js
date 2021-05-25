@@ -83,7 +83,7 @@ let aciertos = [];
 let errores = [];
 
 let numeroPregunta = 1,
-	puntos = 0, unidades = 100,
+	puntos = 0, unidades = 100, vidas = 3,
 	r, m,
 	acierto = new Audio,
 	fallo = new Audio;

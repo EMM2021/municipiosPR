@@ -48,8 +48,12 @@ var app = {
 	},
 
 	play: function () {
+		let html = "";
 		let div = document.getElementById("container");
-		html = `
+		html += `
+			<div id="contador_vidas"></div>
+		`;
+		html += `
 			<div id="mapa">
 			<?xml version="1.0" encoding="utf-8"?>
 			<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [ <!ENTITY
@@ -912,6 +916,8 @@ var app = {
 		musica_inicio.pause();
 		musica_juego.play();
 
+		app.imprimir_vidas();
+
 		app.pregunta();
 	},
 
@@ -959,6 +965,7 @@ var app = {
 					//error
 					fallo.play();
 					errores.push(m);
+					vidas--;
 
 					let div2 = document.getElementById("error");
 					div2.style.backgroundColor = "red";
@@ -969,6 +976,9 @@ var app = {
 					div3.style.color = "red";
 					div3.innerHTML = "Pulsaste sobre " + r;
 					pausa = 2000;
+
+					if(vidas === 0){app.final()};
+					app.imprimir_vidas();
 				};
 
 				control = 0;
@@ -1012,6 +1022,16 @@ var app = {
 
 		//y nueva pregunta
 		app.pregunta();
+
+	},
+
+	imprimir_vidas: function (){
+		let div = document.getElementById("contador_vidas");
+		let html = ``;
+		for (let i = 0; i < vidas; i++){
+			html +=`<img src="img/corazon.png"></img>`;
+		};
+		div.innerHTML = html;
 
 	},
 
