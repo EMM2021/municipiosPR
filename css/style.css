@@ -109,7 +109,9 @@ html {
 
 #info {
     margin: 10px;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 svg path,
@@ -130,26 +132,24 @@ polygon:hover {
     color: #d2eaf1;
     font-size: 2em;
     text-align: center;
-    padding: 0px;
 }
 
-#correcto {
-    width: 50%;
-    float: left;
+#resultado_respuesta{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#correcto, #error {
     font-size: 1.5em;
     text-align: center;
     background-color : rgb(22, 139, 235);
     color: rgb(120, 139, 235);
+    padding: 10px;
+    border-radius: 10px;
 }
 
-#error {
-    width: 50%;
-    float: left;
-    font-size: 1.5em;
-    text-align: center;
-    background-color : rgb(22, 139, 235);
-    color: rgb(120, 139, 235);
-}
 
 #error_municipio {
     color: rgba(255, 0, 0, .5);
@@ -182,6 +182,7 @@ polygon:hover {
     color: #d2eaf1;
     font-size: 2em;
     text-align: center;
+    margin-top: 20px;
 }
 
 #total_puntos, #punt_max{

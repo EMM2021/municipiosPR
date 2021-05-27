@@ -16,6 +16,8 @@ var app = {
 					<p>Vamos a dar una vuelta por todos los muncipios de la isla.</p>
 					<p>A ver cuántos consigues señalar correctamente.</p>
 					<p>Tu puntuación será más alta cuanto menos tardes en contestar.</p>
+					<p>Ahora tienes 3 vidas</p>
+					<p>El juego termina cuando te quedes sin vidas o cuando completes todos los municipios
 					<p>(muy pronto tendremos tabla de records online)</p>
 				</div>
 				<button id="start">COMENZAR</button>`;
@@ -906,8 +908,10 @@ var app = {
 			<div id="info">
 			<div id="pregunta">Pregunta...</div>
 			<div id="error_municipio">******</div>
-			<div id="correcto">CORRECTO</div>
-			<div id="error">ERROR</div>
+			<div id="resultado_respuesta">
+				<div id="correcto">CORRECTO</div>
+				<div id="error">ERROR</div>
+			</div>
 			<div id="puntos">Puntos:</div>
 			</div>`;
 
