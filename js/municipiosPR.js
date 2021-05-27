@@ -13,14 +13,14 @@ var app = {
 					<img id="nenes_caminando" src="img/nenes.png" alt="nenes caminando">
 					<h1>Bienvenidos a Municipios PR</h1>
 				<div id="texto01">
-					<p>Vamos a dar una vuelta por todos los muncipios de la isla.</p>
-					<p>A ver cuántos consigues señalar correctamente.</p>
-					<p>Tu puntuación será más alta cuanto menos tardes en contestar.</p>
+					<p>Vamos a dar una vuelta por todos los muncipios de la isla</p>
+					<p>A ver cuántos consigues señalar correctamente</p>
+					<p>Tu puntuación será más alta cuanto menos tardes en contestar</p>
 					<p>Ahora tienes 3 vidas</p>
 					<p>El juego termina cuando te quedes sin vidas o cuando completes todos los municipios
 					<p>(muy pronto tendremos tabla de records online)</p>
 				</div>
-				<button id="start">COMENZAR</button>`;
+				<button id="start">Comenzar »</button>`;
 
 		localStorage.puntuacion_maxima = (localStorage.puntuacion_maxima || 0);
 		//localStorage.puntuacion_maxima = 2545;
@@ -922,6 +922,8 @@ var app = {
 
 		app.imprimir_vidas();
 
+		app.score();
+
 		app.pregunta();
 	},
 
@@ -981,7 +983,9 @@ var app = {
 					div3.innerHTML = "Pulsaste sobre " + r;
 					pausa = 2000;
 
-					if(vidas === 0){app.final()};
+					if (vidas === 0) {
+						app.final()
+					};
 					app.imprimir_vidas();
 				};
 
@@ -1029,11 +1033,11 @@ var app = {
 
 	},
 
-	imprimir_vidas: function (){
+	imprimir_vidas: function () {
 		let div = document.getElementById("contador_vidas");
 		let html = ``;
-		for (let i = 0; i < vidas; i++){
-			html +=`<img src="img/corazon.png"></img>`;
+		for (let i = 0; i < vidas; i++) {
+			html += `<img src="img/corazon.png"></img>`;
 		};
 		div.innerHTML = html;
 
@@ -1061,7 +1065,7 @@ var app = {
 			</div>
 			<h3>Puntos</h3>
 			<p id="total_puntos"></p>
-			<button id="restart">JUGAR DE NUEVO</button>
+			<button id="restart">Jugar de nuevo »</button>
 		</div>
 	</div>
 		`;

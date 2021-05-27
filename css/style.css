@@ -58,23 +58,34 @@ html {
 }
 
 #texto01 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size:small;
     width: 500px;
     text-align: center;
-    margin: 20px;;
+    margin: 20px;
+    border: 1px solid white;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: white;
+    color: #1166a6;
 }
 
 #texto01 p {
     margin: 8px;
+    
 }
 
 #start,
 #restart {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-decoration: none;
     margin: 10px;
     padding: 10px;
     font-size: x-large;
     color: #1166a6;
     background-color: #edd64a;
+    border-radius: 6px;
+    border: 1px solid #edd64a; 
 }
 
 #start:hover,
