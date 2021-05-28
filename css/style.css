@@ -14,7 +14,7 @@
         display: block;
         color: blue;
         background-color: whitesmoke;
-        text-align: center;
+        text-align:left;
         padding: 20px;
         
     }
@@ -29,6 +29,7 @@
 body,
 html {
     height: 100%;
+    min-width: 1024px;
     font-family: 'Ubuntu', sans-serif;
     background-color: rgb(22, 139, 235);
 }
@@ -100,19 +101,33 @@ html {
 
 #nenes_caminando,
 #grupo_nenes {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
 }
 
-#contador_vidas {
-    height: 40px;
-    padding: 10px;
+#flex-container-2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#vidas, #puntos{
+    width: 20%;
+    text-align: center;
+    color: #d2eaf1;
+    font-size: 1.5em;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 #contador_vidas img{
-    height: 50px;
-    width: 50px;
-    margin-right: 5px;
+    height: 40px;
+    width: 40px;
+   padding:  0 5px;
+}
+#contador_puntos{
+    font-size: 1.5em;
 }
 
 #mapa {
@@ -145,6 +160,11 @@ polygon:hover {
     color: #d2eaf1;
     font-size: 2em;
     text-align: center;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 #resultado_respuesta{
@@ -189,13 +209,6 @@ polygon:hover {
     width: 45%;
     padding: 2%;
     color: red;
-}
-
-#puntos{
-    color: #d2eaf1;
-    font-size: 2em;
-    text-align: center;
-    margin-top: 20px;
 }
 
 #total_puntos, #punt_max{

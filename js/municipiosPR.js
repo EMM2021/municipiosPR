@@ -6,11 +6,11 @@ var app = {
 
 		let html = `
 			<div id="aviso-movil-horizontal">
-			<p>Por favor, para jugar coloca tu móvil o tablet en horizontal.</p>
+			<p>Por favor, para jugar coloca tu móvil o tablet en horizontal...</p>
 			</div>
 			<div class="flex-container">
 				<div class="ventana">
-					<img id="nenes_caminando" src="img/nenes.png" alt="nenes caminando">
+					<img id="nenes_caminando" src="img/dibujo_1.png" alt="nenes caminando">
 					<h1>Bienvenidos a Municipios PR</h1>
 				<div id="texto01">
 					<p>»Vamos a dar una vuelta por todos los muncipios de la isla</p>
@@ -51,7 +51,18 @@ var app = {
 		let html = "";
 		let div = document.getElementById("container");
 		html += `
-			<div id="contador_vidas"></div>
+		<div id="flex-container-2">
+			<div id="vidas">
+				<h3>Vidas</h3>
+				<div id="contador_vidas"></div>
+			</div>
+			<div id="puntos">
+				<h3>Puntos</h3>
+				<div id="contador_puntos"></div>
+			</div>
+
+		</div>
+
 		`;
 		html += `
 			<div id="mapa">
@@ -910,7 +921,6 @@ var app = {
 				<div id="correcto">CORRECTO</div>
 				<div id="error">ERROR</div>
 			</div>
-			<div id="puntos">Puntos:</div>
 			</div>`;
 
 		div.innerHTML = html;
@@ -1001,7 +1011,7 @@ var app = {
 	},
 
 	score: function () {
-		document.getElementById('puntos').innerHTML = 'Puntos: ' + puntos;
+		document.getElementById('contador_puntos').innerHTML = puntos;
 
 	},
 
@@ -1049,7 +1059,7 @@ var app = {
 		html = `
 		<div class="flex-container">
 		<div class="ventana">
-			<img id="grupo_nenes" src="img/resultados.png" alt="grupo de nenes">
+			<img id="grupo_nenes" src="img/dibujo_2.png" alt="grupo de nenes">
 			<h1>Tus resultados:</h1>
 			<div id="resultados">
 				<div id="ventana_aciertos">
