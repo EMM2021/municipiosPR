@@ -53,11 +53,11 @@ var app = {
 		html += `
 		<div id="flex-container-2">
 			<div id="vidas">
-				<h3>Vidas</h3>
+				<h5>Vidas</h5>
 				<div id="contador_vidas"></div>
 			</div>
 			<div id="puntos">
-				<h3>Puntos</h3>
+				<h5>Puntos</h5>
 				<div id="contador_puntos"></div>
 			</div>
 
