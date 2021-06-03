@@ -43,6 +43,10 @@ html {
     justify-content: center;
     align-items: center;
     height: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(/img/flag.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
 }
 
@@ -64,15 +68,15 @@ html {
     text-align: center;
     margin: 20px;
     border: 1px solid white;
-    padding: 5px;
+    padding: 20px;
     border-radius: 10px;
-    background-color: white;
+    background-color: rgba(255,255,255,0.7);
     color: #1166a6;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 
 }
 
-#texto01 p {
+#texto01 li {
     margin: 8px;
     
 }
@@ -99,10 +103,13 @@ html {
     transition: 0.5s;
 }
 
-#nenes_caminando,
-#grupo_nenes {
+#dibujo_1{
     width: 200px;
     height: 200px;
+}
+#dibujo_2 {
+    width: 350px;
+    height: 0px;
 }
 
 #flex-container-2{
@@ -200,16 +207,25 @@ polygon:hover {
 }
 
 #ventana_aciertos{
-    width: 45%;
+    width: 40%;
+    margin: 10px;
     padding: 2%;
     color: green;
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 6px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 #ventana_errores{
-    width: 45%;
+    width: 40%;
+    margin: 10px;
     padding: 2%;
     color: red;
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 6px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
+
 
 #total_puntos, #punt_max{
     font-size: 2em;

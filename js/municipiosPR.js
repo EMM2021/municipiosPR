@@ -10,15 +10,16 @@ var app = {
 			</div>
 			<div class="flex-container">
 				<div class="ventana">
-					<img id="nenes_caminando" src="img/dibujo_1.png" alt="nenes caminando">
 					<h1>Bienvenidos a Municipios PR</h1>
+					<img id="dibujo_1" src="/img/dibujo_1.png">
 				<div id="texto01">
-					<p>»Vamos a dar una vuelta por todos los muncipios de la isla</p>
-					<p>»A ver cuántos consigues señalar correctamente</p>
-					<p>»Tu puntuación será más alta cuanto menos tardes en contestar</p>
-					<p>»Ahora tienes 3 vidas</p>
-					<p>»El juego termina cuando te quedes sin vidas o cuando completes todos los municipios
-					<p>(muy pronto tendremos tabla de records online)</p>
+					<ul>
+						<li>Vamos a dar una vuelta por todos los muncipios de la isla</li>
+						<li>A ver cuántos consigues señalar correctamente</li>
+						<li>Tu puntuación será más alta cuanto menos tardes en contestar</li>
+						<li>Ahora tienes 3 vidas</li>
+						<li>El juego termina cuando te quedes sin vidas o cuando completes todos los municipios</li>
+					</ul>
 				</div>
 				<button id="start">Comenzar</button>`;
 
@@ -1059,7 +1060,7 @@ var app = {
 		html = `
 		<div class="flex-container">
 		<div class="ventana">
-			<img id="grupo_nenes" src="img/dibujo_2.png" alt="grupo de nenes">
+			<img id="dibujo_2" src="img/dibujo_2.png" alt="grupo de nenes">
 			<h1>Tus resultados:</h1>
 			<div id="resultados">
 				<div id="ventana_aciertos">
