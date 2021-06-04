@@ -11,7 +11,7 @@ var app = {
 			<div class="flex-container">
 				<div class="ventana">
 					<h1>Bienvenidos a Municipios PR</h1>
-					<img id="dibujo_1" src="/img/dibujo_1.png">
+					<img id="dibujo_1" src="img/dibujo_1.png">
 				<div id="texto01">
 					<ul>
 						<li>Vamos a dar una vuelta por todos los muncipios de la isla</li>

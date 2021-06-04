@@ -43,7 +43,7 @@ html {
     justify-content: center;
     align-items: center;
     height: 100%;
-    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(/img/flag.jpg);
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(../img/flag.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -109,7 +109,7 @@ html {
 }
 #dibujo_2 {
     width: 350px;
-    height: 0px;
+    height: 350px;
 }
 
 #flex-container-2{
