@@ -11,7 +11,7 @@ var app = {
 			<div class="flex-container">
 				<div class="ventana">
 					<h1>Bienvenidos a Municipios PR</h1>
-					<img id="dibujo_1" src="img/dibujo_1.png">
+					<!--<img id="dibujo_1" src="img/dibujo_1.png">-->
 				<div id="texto01">
 					<ul>
 						<li>Vamos a dar una vuelta por todos los muncipios de la isla</li>
@@ -987,7 +987,7 @@ var app = {
 					div2.style.color = "white";
 
 					let div3 = document.getElementById("error_municipio");
-					div3.style.backgroundColor = "rgb(22, 139, 235)";
+					div3.style.backgroundColor = "rgba(0,0,0,0)";
 					div3.style.color = "red";
 					div3.innerHTML = "Pulsaste sobre " + r;
 					pausa = 2000;
@@ -1029,13 +1029,13 @@ var app = {
 		let div2 = document.getElementById("error");
 		let div3 = document.getElementById("error_municipio");
 
-		div1.style.backgroundColor = "rgb(22, 139, 235)";
-		div2.style.backgroundColor = "rgb(22, 139, 235)";
-		div3.style.backgroundColor = "rgb(22, 139, 235)";
+		div1.style.backgroundColor = "rgba(0,0,0,0)";
+		div2.style.backgroundColor = "rgba(0,0,0,0)";
+		div3.style.backgroundColor = "rgba(0,0,0,0)";
 
-		div1.style.color = "rgb(120, 139, 235)";
-		div2.style.color = "rgb(120, 139, 235)";
-		div3.style.color = "rgb(22, 139, 235)";
+		div1.style.color = "rgba(120, 139, 235,0.2)";
+		div2.style.color = "rgba(120, 139, 235,0.2)";
+		div3.style.color = "rgba(0,0,0,0)";
 
 		//y nueva pregunta
 		app.pregunta();
@@ -1060,7 +1060,7 @@ var app = {
 		html = `
 		<div class="flex-container">
 		<div class="ventana">
-			<img id="dibujo_2" src="img/dibujo_2.png" alt="grupo de nenes">
+			<!--<img id="dibujo_2" src="img/dibujo_2.png" alt="grupo de nenes">-->
 			<h1>Tus resultados:</h1>
 			<div id="resultados">
 				<div id="ventana_aciertos">
