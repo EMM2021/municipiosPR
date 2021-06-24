@@ -6,7 +6,7 @@ var app = {
 
 		let html = `
 			<div id="aviso-movil-horizontal">
-			<p>Por favor, para jugar coloca tu móvil o tablet en horizontal...</p>
+			<p>Este Juego está diseñado para jugar en tablet o PC. Si utilizas una tablet coloca tu dispositivo en horizontal...</p>
 			</div>
 			<div class="flex-container">
 				<div class="ventana">
