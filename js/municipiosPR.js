@@ -14,7 +14,7 @@ var app = {
 					<!--<img id="dibujo_1" src="img/dibujo_1.png">-->
 				<div id="texto01">
 					<ul>
-						<li>Vamos a dar una vuelta por todos los muncipios de la isla</li>
+						<li>Vamos a dar una vuelta por todos los municipios de la isla</li>
 						<li>A ver cuántos consigues señalar correctamente</li>
 						<li>Tu puntuación será más alta cuanto menos tardes en contestar</li>
 						<li>Ahora tienes 3 vidas</li>
